@@ -6,12 +6,24 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  JAVA_VERSION: 17
+  JAVA_DISTRIBUTION: temurin
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
+      # Set up Java 17
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.5.0
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          cache: gradle
+          cache-dependency-path: ${{ github.workspace }}/android/build.gradle
       # Set flutter environment
       - name: Flutter action
         uses: subosito/flutter-action@v2.14.0
@@ -20,7 +32,7 @@ jobs:
           flutter-version-file: pubspec.yaml # path to pubspec.yaml
           cache: true
       - name: Get flutter version
-        run: flutter --version
+        run: flutter doctor -v
       # Build
       - name: Build APK
         run: |
