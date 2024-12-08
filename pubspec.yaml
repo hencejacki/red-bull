@@ -1,4 +1,4 @@
-name: lucky_money_assassin
+name: red_bull
 description: "A new Flutter project."
 
 
@@ -8,6 +8,7 @@ version: 1.0.0+1
 
 environment:
   sdk: '>=3.2.5 <4.0.0'
+  flutter: 3.22.1
 
 dependencies:
   flutter:

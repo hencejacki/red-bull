@@ -23,7 +23,6 @@ class SettingController {
     ));
   }
 
-  // 浏览器,启动!
   Future<void> launchURL(String url) async {
     Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {

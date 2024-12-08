@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lucky_money_assassin/constant/theme_color.dart';
+import 'package:red_bull/constant/theme_color.dart';
 
 class LucyMoneyCurve extends CustomPainter {
   @override
