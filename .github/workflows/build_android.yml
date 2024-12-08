@@ -37,5 +37,14 @@ jobs:
       - name: Build APK
         run: |
           flutter pub get
-          flutter build apk
+          flutter build apk --split-per-abi
           flutter build appbundle
+      # Upload artificat
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk_release
+          path: |
+            ${{ github.workspace }}/build/app/outputs/bundle/release
+            ${{ github.workspace }}/build/app/outputs/apk/release
+          
