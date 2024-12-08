@@ -1,0 +1,29 @@
+name: build_android
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      # Set flutter environment
+      - name: Flutter action
+        uses: subosito/flutter-action@v2.14.0
+        with:
+          channel: stable
+          flutter-version-file: pubspec.yaml # path to pubspec.yaml
+          cache: true
+      - name: Get flutter version
+        run: flutter -version
+      # Build
+      - name: Build APK
+        run: |
+          flutter pub get
+          flutter build apk
+          flutter build appbundle
