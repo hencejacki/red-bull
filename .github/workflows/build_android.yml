@@ -20,7 +20,7 @@ jobs:
           flutter-version-file: pubspec.yaml # path to pubspec.yaml
           cache: true
       - name: Get flutter version
-        run: flutter -version
+        run: flutter --version
       # Build
       - name: Build APK
         run: |
