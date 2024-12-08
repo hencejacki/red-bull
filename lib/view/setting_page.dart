@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lucky_money_assassin/controller/setting_controller.dart';
-import 'package:lucky_money_assassin/widgets/custom_text.dart';
+import 'package:red_bull/controller/setting_controller.dart';
+import 'package:red_bull/widgets/custom_text.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key, required this.controller});
