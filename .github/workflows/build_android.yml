@@ -39,12 +39,13 @@ jobs:
           flutter pub get
           flutter build apk --split-per-abi
           flutter build appbundle
-      # Upload artificat
+      # Upload artifact
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: apk_release
           path: |
-            ${{ github.workspace }}/build/app/outputs/bundle/release
-            ${{ github.workspace }}/build/app/outputs/apk/release
+            ${{ github.workspace }}/build/app/outputs/bundle/release/*
+            ${{ github.workspace }}/build/app/outputs/apk/release/*
+            !${{ github.workspace }}/build/app/outputs/apk/release/output-metadata.json
           
